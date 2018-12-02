@@ -3,6 +3,17 @@ body {
   box-sizing: border-box;
   width: 320px;
 }
+.button{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  padding: 20px 80px;
+  background-color: transparent;
+  border: 1px solid #e5ddd5;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 24px;
+}
 
 i.fa.fa-bars{
   color: #ffffff;
@@ -12,5 +23,5 @@ i.fa.fa-bars{
 @import "section-stats";
 @import "section-advantages";
 @import "section_news";
-
+@import "section-reviews";
 

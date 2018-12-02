@@ -1,0 +1,35 @@
+.reviews{
+    height: auto;
+    &__wrapper{
+        background-color: #f8f5f2;
+        padding: 30px 0;
+    }
+    &__title{
+        text-align: center;
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+    &__list{
+        height: auto;
+    }
+    &__item{
+        margin: 20px;
+        display: block;
+    }
+    &__picture{
+        margin: 0;
+        display: inline-block;
+        width: auto;
+        float: left;
+        margin-right: 20px;
+    }
+    &__text {
+        display: table;
+        margin: 0;
+    }
+    &__author-name{
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+

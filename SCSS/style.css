@@ -3,6 +3,17 @@ body {
   box-sizing: border-box;
   width: 320px; }
 
+.button {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  padding: 20px 80px;
+  background-color: transparent;
+  border: 1px solid #e5ddd5;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 24px; }
+
 i.fa.fa-bars {
   color: #ffffff; }
 
@@ -133,12 +144,13 @@ tbody {
 
 .advantages {
   height: auto; }
+  .advantages__wrapper {
+    background-color: #242424; }
   .advantages__list {
     text-align: center;
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #242424;
     color: #fff; }
   .advantages__title {
     display: block;
@@ -152,7 +164,6 @@ tbody {
     text-align: center;
     margin-bottom: 0; }
   .advantages__toggles {
-    background-color: #242424;
     margin: 0;
     padding: 20px 0;
     text-align: center; }
@@ -164,7 +175,11 @@ tbody {
   display: none; }
 
 .news {
-  background-color: #f8f5f2; }
+  height: auto; }
+  .news__wrapper {
+    padding: 30px 0;
+    background-color: #f8f5f2;
+    border-bottom: 1px solid #e5ddd5; }
   .news__title {
     margin-top: 0;
     text-transform: uppercase;
@@ -182,15 +197,38 @@ tbody {
   .news__date {
     width: 40px;
     margin-right: 20px;
-    padding-left: 20px; }
+    padding-left: 20px;
+    text-align: center; }
   .news__text {
     display: block;
     width: auto;
     margin-top: 0px; }
 
-.news__to-all {
-  text-align: center;
-  display: block;
-  margin: 0 auto; }
+.reviews {
+  height: auto; }
+  .reviews__wrapper {
+    background-color: #f8f5f2;
+    padding: 30px 0; }
+  .reviews__title {
+    text-align: center;
+    margin-top: 0;
+    text-transform: uppercase; }
+  .reviews__list {
+    height: auto; }
+  .reviews__item {
+    margin: 20px;
+    display: block; }
+  .reviews__picture {
+    margin: 0;
+    display: inline-block;
+    width: auto;
+    float: left;
+    margin-right: 20px; }
+  .reviews__text {
+    display: table;
+    margin: 0; }
+  .reviews__author-name {
+    display: block;
+    margin-bottom: 5px; }
 
 /*# sourceMappingURL=style.css.map */

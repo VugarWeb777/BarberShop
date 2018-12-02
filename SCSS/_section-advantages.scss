@@ -1,11 +1,13 @@
 .advantages{
     height: auto;
+    &__wrapper{
+        background-color: #242424;
+    }
     &__list{
         text-align: center;
         list-style: none;
         margin: 0;
         padding: 0;
-        background-color: #242424;
         color: #fff;
     }
     &__title{
@@ -22,7 +24,6 @@
         margin-bottom: 0;
     }
     &__toggles{
-        background-color: #242424;
         margin: 0;
         padding: 20px 0;
         text-align: center;
