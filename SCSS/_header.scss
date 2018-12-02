@@ -1,0 +1,89 @@
+.page-header {
+  height: auto;
+  &__logo {
+    display: block;
+    height: 85px;
+    background-color: #242424;
+    text-align: center;
+  }
+  &__logo-image {
+    padding-top: 30px;
+    cursor: pointer;
+  }
+}
+
+.main-nav__wrapper {
+  height: auto;
+  background-color: #81654f;
+}
+
+.main-nav__toggle {
+  width: 70px;
+  height: auto;
+  background: #6a4d38;
+  border: none;
+  display: block;
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+  padding: 6px 0px 5px 0px;
+  &:hover {
+    background-color: #886d5a;
+  }
+}
+
+.main_nav__link-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav__link {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-left: 130px;
+  margin-top: 15px;
+
+}
+
+.main-nav {
+  height: auto;
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.site-list {
+  height: auto;
+  &__item {
+    border-bottom: 1px solid #604735;
+    box-shadow: 0px 1px 0px #886d5a;
+  }
+  &__link {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+  }
+}
+
+.user-list {
+  background-color: #6a4d38;
+  &__login {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}

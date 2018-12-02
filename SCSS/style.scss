@@ -1,0 +1,16 @@
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+  box-sizing: border-box;
+  width: 320px;
+}
+
+i.fa.fa-bars{
+  color: #ffffff;
+}
+
+@import "header";
+@import "section-stats";
+@import "section-advantages";
+@import "section_news";
+
+
