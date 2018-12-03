@@ -12,7 +12,8 @@ body {
   border: 1px solid #e5ddd5;
   font-size: 18px;
   text-transform: uppercase;
-  line-height: 24px; }
+  line-height: 24px;
+  cursor: pointer; }
 
 i.fa.fa-bars {
   color: #ffffff; }
@@ -229,6 +230,53 @@ tbody {
     margin: 0; }
   .reviews__author-name {
     display: block;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-style: normal; }
+  .reviews__button {
+    text-align: center; }
+  .reviews__toggles {
+    text-align: center; }
+
+.page-footer {
+  height: auto; }
+  .page-footer__wrapper {
+    background-color: #292929;
+    color: #ffffff;
+    padding-top: 20px; }
+  .page-footer__contacts {
+    text-align: center; }
+
+h1.contacts__title {
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 27px; }
+
+p.contacts__text {
+  font-size: 18px;
+  line-height: 27px; }
+
+a.contacts__phone.button {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0; }
+
+.social__list {
+  padding: 0;
+  list-style: none;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 60px; }
+
+.social__link {
+  color: #ffffff;
+  font-size: 18px; }
+
+.page-footer__copyright {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

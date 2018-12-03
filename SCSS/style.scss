@@ -13,6 +13,7 @@ body {
   font-size: 18px;
   text-transform: uppercase;
   line-height: 24px;
+  cursor: pointer;
 }
 
 i.fa.fa-bars{
@@ -24,4 +25,5 @@ i.fa.fa-bars{
 @import "section-advantages";
 @import "section_news";
 @import "section-reviews";
+@import "footer";
 

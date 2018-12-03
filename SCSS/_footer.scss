@@ -1,0 +1,44 @@
+.page-footer{
+  height: auto;
+  &__wrapper{
+    background-color: #292929;
+    color: #ffffff;
+    padding-top: 20px;
+  }
+  &__contacts{
+    text-align: center;
+  }
+}
+h1.contacts__title{
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 27px;
+}
+p.contacts__text{
+  font-size: 18px;
+  line-height: 27px;
+}
+a.contacts__phone.button {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 0;
+}
+
+.social__list{
+  padding: 0;
+  list-style: none;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+.social__link{
+  color: #ffffff;
+  font-size: 18px;
+}
+.page-footer__copyright{
+  text-align: center;
+}
