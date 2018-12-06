@@ -1,4 +1,6 @@
-@import "blocks/global";
+@import "variables";
+@import "mixin";
+@import "global";
 @import "blocks/header";
 @import "blocks/section-stats";
 @import "blocks/section-advantages";

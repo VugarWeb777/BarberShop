@@ -1,0 +1,8 @@
+@mixin text-params ($color, $size) {
+  color: $color;
+  font-size: $size;
+}
+@mixin text-style($decoration,$transform) {
+  text-decoration: $decoration;
+  text-transform: $transform;
+}
