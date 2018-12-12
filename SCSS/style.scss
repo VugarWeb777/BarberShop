@@ -1,7 +1,9 @@
-@import "variables";
-@import "mixin";
+@import "abstracts/variables";
+@import "abstracts/mixin";
+@import "normalize";
 @import "global";
 @import "blocks/header";
+@import "blocks/main_nav";
 @import "blocks/section-stats";
 @import "blocks/section-advantages";
 @import "blocks/section_news";

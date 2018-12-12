@@ -6,3 +6,15 @@
   text-decoration: $decoration;
   text-transform: $transform;
 }
+// Media
+@mixin min-width($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-width($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
