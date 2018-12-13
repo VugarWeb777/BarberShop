@@ -367,8 +367,16 @@ i.fa.fa-bars {
         width: 370px; } }
 
 .main-nav__wrapper {
-  height: auto;
   background-color: #81654f; }
+  @media (min-width: 768px) {
+    .main-nav__wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 640px;
+      margin: 0 auto; } }
+  @media (min-width: 1150px) {
+    .main-nav__wrapper {
+      width: 960px; } }
 
 .main-nav__toggle {
   width: 70px;
@@ -392,43 +400,55 @@ i.fa.fa-bars {
   font-size: 18px;
   text-decoration: none;
   text-transform: uppercase;
-  margin-left: 130px;
-  margin-top: 15px; }
+  margin: 0 auto;
+  padding-top: 15px; }
 
 .main-nav {
   width: 320px;
   margin: 0 auto; }
+  @media (min-width: 768px) {
+    .main-nav {
+      width: auto;
+      margin: 0; } }
   .main-nav__list {
     list-style: none;
     margin: 0;
     padding: 0; }
 
-.site-list {
-  height: auto; }
-  .site-list__item {
-    border-bottom: 1px solid #604735;
-    box-shadow: 0px 1px 0px #886d5a; }
-  .site-list__link {
-    color: #fff;
-    font-size: 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 20px; }
+@media (min-width: 768px) {
+  .site-list {
+    width: 570px; } }
+@media (min-width: 1150px) {
+  .site-list {
+    width: 780px; } }
+.site-list__item {
+  border-bottom: 1px solid #604735;
+  box-shadow: 0px 1px 0px #886d5a; }
+.site-list__link {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px; }
 
 .user-list {
   background-color: #6a4d38; }
+  @media (min-width: 768px) {
+    .user-list {
+      width: 60px; } }
+  @media (min-width: 1150px) {
+    .user-list {
+      width: 160px; } }
   .user-list__login {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 50px;
     display: block;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    text-align: center; }
 
 .stats {
   height: auto; }

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     //мобильное меню
     var btn_menu = $('.main-nav__toggle');
     var main_nav = $('.main-nav');
@@ -6,5 +6,5 @@ $(document).ready(function(){
         e.preventDefault();
         main_nav.slideToggle("slow");
     })
-});
+});*/
 

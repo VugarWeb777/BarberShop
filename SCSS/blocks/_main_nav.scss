@@ -1,6 +1,14 @@
 .main-nav__wrapper {
-  height: auto;
   background-color: #81654f;
+  @include min-width($tablet-width){
+    display: flex;
+    justify-content: space-between;
+    width: 640px;
+    margin: 0 auto;
+  }
+  @include min-width($desktop-width){
+    width: 960px;
+  }
 }
 
 .main-nav__toggle {
@@ -26,14 +34,18 @@
 .main-nav__link {
   @include text-params(#fff,18px);
   @include text-style(none,uppercase);
-  margin-left: 130px;
-  margin-top: 15px;
+  margin: 0 auto;
+  padding-top: 15px;
 
 }
 
 .main-nav {
   width: 320px;
   margin: 0 auto;
+  @include min-width($tablet-width){
+    width: auto;
+    margin: 0;
+  }
   &__list {
     list-style: none;
     margin: 0;
@@ -42,7 +54,12 @@
 }
 
 .site-list {
-  height: auto;
+  @include min-width($tablet-width){
+    width: 570px;
+  }
+  @include  min-width($desktop-width){
+    width: 780px;
+  }
   &__item {
     border-bottom: 1px solid #604735;
     box-shadow: 0px 1px 0px #886d5a;
@@ -59,14 +76,18 @@
 
 .user-list {
   background-color: #6a4d38;
+  @include min-width($tablet-width){
+    width: 60px;
+  }
+  @include  min-width($desktop-width){
+    width: 160px;
+  }
   &__login {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 50px;
     display: block;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     text-transform: uppercase;
+    text-align: center;
   }
 }
