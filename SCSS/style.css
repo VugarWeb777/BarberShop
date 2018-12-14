@@ -451,9 +451,28 @@ i.fa.fa-bars {
     text-align: center; }
 
 .stats {
-  height: auto; }
+  width: 320px;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .stats {
+      width: 640px;
+      margin-top: -185px; } }
+  @media (min-width: 768px) and (min-width: 1150px) {
+    .stats {
+      display: flex;
+      width: 960px;
+      margin-top: -160px; } }
+
   .stats__header {
-    height: auto; }
+    padding-top: 30px;
+    padding-right: 40px;
+    padding-bottom: 25px;
+    padding-left: 40px;
+    background-color: #ffffff;
+    position: relative; }
+    @media (min-width: 1150px) {
+      .stats__header {
+        width: 240px; } }
   .stats__slogan {
     font-size: 30px;
     text-align: center;
@@ -468,7 +487,13 @@ i.fa.fa-bars {
   .stats__list {
     width: 100%;
     border-spacing: 0px;
-    border-collapse: collapse; }
+    border-collapse: collapse;
+    /*@include min-width($tablet-width){
+      display: flex;
+    }*/ }
+    @media (min-width: 1150px) {
+      .stats__list {
+        width: 640px; } }
   .stats__value {
     font-size: 40px;
     line-height: 18px;
@@ -499,7 +524,16 @@ tbody {
   color: #626262;
   display: block;
   background-color: #242424;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  display: none; }
+
+tbody {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap; }
+
+tr {
+  width: 320px; }
 
 .advantages {
   height: auto; }
