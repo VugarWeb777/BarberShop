@@ -1,15 +1,4 @@
 .stats {
-  width: 320px;
-  margin: 0 auto;
-  @include min-width($tablet-width){
-    width: 640px;
-    margin-top: -185px;
-    @include min-width($desktop-width){
-      display: flex;
-      width: 960px;
-      margin-top: -160px;
-    }
-  }
   &__header {
     padding-top: 30px;
     padding-right: 40px;
@@ -17,9 +6,6 @@
     padding-left: 40px;
     background-color: #ffffff;
     position: relative;
-    @include min-width($desktop-width){
-      width: 240px;
-    }
   }
   &__slogan {
     font-size: 30px;
@@ -38,12 +24,6 @@
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
-    /*@include min-width($tablet-width){
-      display: flex;
-    }*/
-    @include min-width($desktop-width){
-      width: 640px;
-    }
   }
   &__value {
     font-size: 40px;
@@ -61,7 +41,6 @@
 }
 
 tbody {
-  height: auto;
   tr:nth-child(1) {
     background-color: #404040;
   }
@@ -88,13 +67,4 @@ tbody {
   background-color: #242424;
   padding-bottom: 20px;
   display: none;
-}
-
-tbody {
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-tr {
-  width: 320px;
 }

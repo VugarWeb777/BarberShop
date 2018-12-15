@@ -14,10 +14,14 @@
 </head>
 <body>
 <header class="page-header">
-  <a class="page-header__logo">
-    <!--<img class="page-header__logo-image" src="images/logotype-mobile.png" width="226" height="30" alt="Барбершоп Бородинский">-->
-    <span class="page-header__logo-image" href="index.html"></span>
-  </a>
+  <div class="page-header__wrapper">
+    <div class="page-header__logo">
+    <picture>
+      <source media="(min-width: 1150px)" srcset="images/logotype-desktop.svg.png">
+      <source media="(min-width: 768px)" srcset="images/logotype-tablet.svg.png">
+      <img src="images/logotype-mobile.png" alt="barbershop" class="page-header__logo-img">
+    </picture>
+  </div>
   <nav class="main-nav">
     <div class="main-nav__wrapper">
       <ul class="main-nav__list site-list">
@@ -44,6 +48,7 @@
       </ul>
     </div>
   </nav>
+  </div>
 </header>
 <main class="page-main">
   <h1 class="visually-hidden" hidden>Барбершоп "Бородинский" - истинно мужская классика</h1>
