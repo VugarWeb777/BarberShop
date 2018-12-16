@@ -1,7 +1,15 @@
 body {
-  font-family: $default-font;
-  box-sizing: border-box;
   min-width: 320px;
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 27px;
+  font-family:$default-font ;
+  color: #f7f4f1;
+  font-style: normal;
+
+  background-color: $bg-darkgrey;
 }
 .button{
   text-align: center;

@@ -1,6 +1,20 @@
 .main-nav {
+  width: 320px;
+  margin: 0 auto;
+  @include min-width($tablet-width){
+    width: auto;
+    margin: 0;
+  }
   &__wrapper {
-    background-color: #81654f;
+    @include min-width($tablet-width){
+      display: flex;
+      justify-content: space-between;
+      width: 640px;
+      margin: 0 auto;
+    }
+    @include min-width($desktop-width){
+      width: 960px;
+    }
   }
   &__list {
     list-style: none;
@@ -30,36 +44,46 @@
 }
 
 .main-nav__link {
-  @include text-params(#fff,18px);
-  @include text-style(none,uppercase);
   margin: 0 auto;
   padding-top: 15px;
 
 }
 
 .site-list {
+  @media (max-width: 767px) {
+    background-color: #81654f;
+  }
+  @include min-width($tablet-width){
+    display: flex;
+    width: 570px;
+  }
+  @include min-width($desktop-width){
+    width: 780px;
+  }
   &__item {
-    border-bottom: 1px solid #604735;
-    box-shadow: 0px 1px 0px #886d5a;
+    @media (max-width: 767px){
+      border-bottom: 1px solid #604735;
+      box-shadow: 0px 1px 0px #886d5a;
+    }
   }
   &__link {
-    @include text-params(#fff,18px);
-    @include text-style(none,uppercase);
-    display: block;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 20px;
+    @include link;
   }
 }
 
 .user-list {
-  background-color: #6a4d38;
+  @media (max-width: 767px){
+    background-color: #6a4d38;
+  }
+  @include min-width($tablet-width){
+    display: flex;
+    width: 60px;
+  }
+  @include min-width($desktop-width){
+    width: 160px;
+  }
   &__login {
-    display: block;
-    color: #fff;
-    text-decoration: none;
+    @include link;
     font-size: 16px;
-    text-transform: uppercase;
-    text-align: center;
   }
 }
