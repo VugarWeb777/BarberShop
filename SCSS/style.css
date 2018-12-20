@@ -313,6 +313,9 @@ body {
   color: #f7f4f1;
   font-style: normal;
   background-color: #292929; }
+  @media (min-width: 768px) {
+    body {
+      background-color: #353535; } }
 
 .button {
   text-align: center;
@@ -322,6 +325,7 @@ body {
   background-color: transparent;
   border: 1px solid #e5ddd5;
   font-size: 18px;
+  font-weight: bold;
   text-transform: uppercase;
   line-height: 24px;
   cursor: pointer; }
@@ -346,10 +350,14 @@ i.fa.fa-bars {
       background-image: url("../images/back-desktop.jpg.png"); } }
   .page-header__logo {
     height: 85px;
-    padding-top: 10px;
-    text-align: center; }
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     @media (min-width: 768px) {
       .page-header__logo {
+        align-items: flex-start;
+        padding-top: 20px;
         order: 2;
         height: 400px; } }
     @media (min-width: 1150px) {
@@ -529,7 +537,21 @@ tbody tr:nth-child(4) {
 .advantages {
   height: auto; }
   .advantages__wrapper {
-    background-color: #242424; }
+    background-color: #242424;
+    width: 280px;
+    padding: 0 20px;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .advantages__wrapper {
+        background-color: #353535; } }
+    @media (min-width: 768px) {
+      .advantages__wrapper {
+        width: 640px;
+        padding: 0 64px; } }
+    @media (min-width: 1150px) {
+      .advantages__wrapper {
+        width: 960px;
+        padding: 0 120px; } }
   .advantages__list {
     text-align: center;
     list-style: none;
@@ -551,18 +573,27 @@ tbody tr:nth-child(4) {
     margin: 0;
     padding: 20px 0;
     text-align: center; }
+  .advantages__item {
+    max-width: 450px;
+    margin: 0 auto; }
 
 .advantages__list > li:nth-child(2) {
   display: none; }
+  @media (min-width: 768px) {
+    .advantages__list > li:nth-child(2) {
+      display: block; } }
 
 .advantages__list > li:nth-child(3) {
   display: none; }
+  @media (min-width: 768px) {
+    .advantages__list > li:nth-child(3) {
+      display: block; } }
 
 .news {
-  height: auto; }
+  background-color: #f7f5f1;
+  color: #000000; }
   .news__wrapper {
     padding: 30px 0;
-    background-color: #f8f5f2;
     border-bottom: 1px solid #e5ddd5; }
   .news__title {
     margin-top: 0;
@@ -589,9 +620,9 @@ tbody tr:nth-child(4) {
     margin-top: 0px; }
 
 .reviews {
-  height: auto; }
+  background-color: #f7f5f1;
+  color: #000000; }
   .reviews__wrapper {
-    background-color: #f8f5f2;
     padding: 30px 0; }
   .reviews__title {
     text-align: center;

@@ -13,9 +13,13 @@
   }
   &__logo {
     height: 85px;
-    padding-top: 10px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include min-width($tablet-width) {
+      align-items: flex-start;
+      padding-top: 20px;
       order: 2;
       height: 400px;
     }

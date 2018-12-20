@@ -1,39 +1,53 @@
-.advantages{
-    height: auto;
-    &__wrapper{
-        background-color: #242424;
+.advantages {
+  height: auto;
+  &__wrapper {
+    background-color: #242424;
+    @include min-width($tablet-width){
+      background-color: #353535;
     }
-    &__list{
-        text-align: center;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        color: #fff;
-    }
-    &__title{
-        display: block;
-        font-size: 30px;
-        line-height: 30px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    &__description{
-        font-size: 20px;
-        line-height: 27px;
-        text-align: center;
-        margin-bottom: 0;
-    }
-    &__toggles{
-        margin: 0;
-        padding: 20px 0;
-        text-align: center;
-    }
+    @include container;
+  }
+  &__list {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+  &__title {
+    display: block;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &__description {
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  &__toggles {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+  &__item{
+    max-width: 450px;
+    margin: 0 auto;
+  }
 }
 
-
-.advantages__list>li:nth-child(2){
-    display: none;
+.advantages__list > li:nth-child(2) {
+  display: none;
+  @include min-width($tablet-width){
+    display: block;
+  }
 }
-.advantages__list>li:nth-child(3){
-    display: none;
+
+.advantages__list > li:nth-child(3) {
+  display: none;
+  @include min-width($tablet-width){
+    display: block;
+  }
 }
