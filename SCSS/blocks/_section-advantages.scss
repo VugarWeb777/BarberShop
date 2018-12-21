@@ -33,21 +33,29 @@
     text-align: center;
   }
   &__item{
-    max-width: 450px;
     margin: 0 auto;
+    @include min-width($tablet-width){
+      margin-top: 40px;
+      display: flex;
+    }
+  }
+  &__img{
+    @include min-width($tablet-width){
+      margin-right: 30px;
+    }
   }
 }
 
 .advantages__list > li:nth-child(2) {
   display: none;
   @include min-width($tablet-width){
-    display: block;
+    display: flex;
   }
 }
 
 .advantages__list > li:nth-child(3) {
   display: none;
   @include min-width($tablet-width){
-    display: block;
+    display: flex;
   }
 }

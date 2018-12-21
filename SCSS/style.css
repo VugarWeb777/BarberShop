@@ -321,7 +321,7 @@ body {
   text-align: center;
   display: block;
   margin: 0 auto;
-  padding: 20px 80px;
+  margin-bottom: 10px;
   background-color: transparent;
   border: 1px solid #e5ddd5;
   font-size: 18px;
@@ -574,27 +574,43 @@ tbody tr:nth-child(4) {
     padding: 20px 0;
     text-align: center; }
   .advantages__item {
-    max-width: 450px;
     margin: 0 auto; }
+    @media (min-width: 768px) {
+      .advantages__item {
+        margin-top: 40px;
+        display: flex; } }
+  @media (min-width: 768px) {
+    .advantages__img {
+      margin-right: 30px; } }
 
 .advantages__list > li:nth-child(2) {
   display: none; }
   @media (min-width: 768px) {
     .advantages__list > li:nth-child(2) {
-      display: block; } }
+      display: flex; } }
 
 .advantages__list > li:nth-child(3) {
   display: none; }
   @media (min-width: 768px) {
     .advantages__list > li:nth-child(3) {
-      display: block; } }
+      display: flex; } }
 
 .news {
   background-color: #f7f5f1;
   color: #000000; }
   .news__wrapper {
-    padding: 30px 0;
-    border-bottom: 1px solid #e5ddd5; }
+    border-bottom: 1px solid #e5ddd5;
+    width: 280px;
+    padding: 0 20px;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .news__wrapper {
+        width: 640px;
+        padding: 0 64px; } }
+    @media (min-width: 1150px) {
+      .news__wrapper {
+        width: 960px;
+        padding: 0 120px; } }
   .news__title {
     margin-top: 0;
     text-transform: uppercase;
@@ -623,11 +639,22 @@ tbody tr:nth-child(4) {
   background-color: #f7f5f1;
   color: #000000; }
   .reviews__wrapper {
-    padding: 30px 0; }
+    width: 280px;
+    padding: 0 20px;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .reviews__wrapper {
+        width: 640px;
+        padding: 0 64px; } }
+    @media (min-width: 1150px) {
+      .reviews__wrapper {
+        width: 960px;
+        padding: 0 120px; } }
   .reviews__title {
     text-align: center;
     margin-top: 0;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    padding-top: 15px; }
   .reviews__list {
     height: auto; }
   .reviews__item {
