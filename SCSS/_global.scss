@@ -5,16 +5,17 @@ body {
 
   font-size: 18px;
   line-height: 27px;
-  font-family:$default-font ;
+  font-family: $default-font;
   color: #f7f4f1;
   font-style: normal;
 
   background-color: $bg-darkgrey;
-  @include min-width($tablet-width){
-    background-color:#353535;
+  @include min-width($tablet-width) {
+    background-color: #353535;
   }
 }
-.button{
+
+.button {
   text-align: center;
   display: block;
   margin: 0 auto;
@@ -27,11 +28,12 @@ body {
   line-height: 24px;
   cursor: pointer;
 }
-img{
+
+img {
   max-width: 100%;
   height: auto;
 }
 
-i.fa.fa-bars{
+i.fa.fa-bars {
   color: #ffffff;
 }

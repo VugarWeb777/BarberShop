@@ -2,10 +2,11 @@
   height: auto;
   &__wrapper {
     background-color: #242424;
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       background-color: #353535;
     }
     @include container;
+    padding-top: 20px;
   }
   &__list {
     text-align: center;
@@ -13,6 +14,9 @@
     margin: 0;
     padding: 0;
     color: #fff;
+    @include min-width($desktop-width){
+      display: flex;
+    }
   }
   &__title {
     display: block;
@@ -20,42 +24,79 @@
     line-height: 30px;
     text-align: center;
     text-transform: uppercase;
+    @include min-width($tablet-width){
+      text-align: left;
+    }
+    @include min-width($desktop-width){
+      text-align: center;
+    }
   }
   &__description {
     font-size: 20px;
     line-height: 27px;
     text-align: center;
     margin-bottom: 0;
+    @include min-width($tablet-width){
+      text-align: left;
+    }
+    @include min-width($desktop-width){
+      text-align: center;
+    }
   }
   &__toggles {
     margin: 0;
     padding: 20px 0;
     text-align: center;
-  }
-  &__item{
-    margin: 0 auto;
-    @include min-width($tablet-width){
-      margin-top: 40px;
-      display: flex;
+    @include min-width($tablet-width) {
+      display: none;
     }
   }
-  &__img{
+  &__description-block {
     @include min-width($tablet-width){
+      width: 450px;
+    }
+    @include min-width($desktop-width){
+      width: 300px;
+    }
+  }
+  &__item {
+    margin: 0 auto;
+    @include min-width($tablet-width) {
+      margin-top: 40px;
+      display: flex;
+      border-bottom: 2px solid #4a4a4a;
+      padding-bottom: 40px;
+    }
+    @include min-width($desktop-width){
+      display: block;
+    }
+  }
+  &__img {
+    @include min-width($tablet-width) {
       margin-right: 30px;
+    }
+    @include min-width($desktop-width){
+      margin: 0;
     }
   }
 }
 
 .advantages__list > li:nth-child(2) {
   display: none;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     display: flex;
+  }
+  @include min-width($desktop-width){
+    display: block;
   }
 }
 
 .advantages__list > li:nth-child(3) {
   display: none;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     display: flex;
+  }
+  @include min-width($desktop-width){
+    display: block;
   }
 }

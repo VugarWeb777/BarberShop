@@ -1,23 +1,28 @@
-.page-footer{
+.page-footer {
   height: auto;
-  &__wrapper{
+  &__wrapper {
     background-color: #292929;
     color: #ffffff;
-    padding-top: 20px;
+    @include container;
+    padding-top: 10px;
   }
-  &__contacts{
+  &__contacts {
     text-align: center;
   }
 }
-h1.contacts__title{
+
+h1.contacts__title {
   margin-top: 0;
   font-size: 18px;
   line-height: 27px;
+  margin: 0;
 }
-p.contacts__text{
+
+p.contacts__text {
   font-size: 18px;
   line-height: 27px;
 }
+
 a.contacts__phone.button {
   color: #fff;
   display: block;
@@ -27,7 +32,7 @@ a.contacts__phone.button {
   padding: 10px 0;
 }
 
-.social__list{
+.social__list {
   padding: 0;
   list-style: none;
   padding-left: 20px;
@@ -35,10 +40,12 @@ a.contacts__phone.button {
   justify-content: space-between;
   height: 60px;
 }
-.social__link{
+
+.social__link {
   color: #ffffff;
   font-size: 18px;
 }
-.page-footer__copyright{
+
+.page-footer__copyright {
   text-align: center;
 }

@@ -1,15 +1,14 @@
 .page-header {
   display: flex;
   flex-direction: column;
-  background-color: #242424;
   background-repeat: no-repeat;
-  @include  min-width($tablet-width){
+  @include min-width($tablet-width) {
     background-image: url("../images/back-tablet.jpg.png");
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     background-image: url("../images/back-desktop.jpg.png");
   }
-  &__wrapper{
+  &__wrapper {
   }
   &__logo {
     height: 85px;
@@ -23,7 +22,7 @@
       order: 2;
       height: 400px;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       height: 648px;
     }
   }

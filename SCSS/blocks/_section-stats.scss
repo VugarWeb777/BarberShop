@@ -1,11 +1,11 @@
 .stats {
   width: 320px;
   margin: 0 auto;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     width: 640px;
     margin-top: -185px;
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     display: flex;
     width: 960px;
     margin-top: -160px;
@@ -18,7 +18,7 @@
     background-color: #ffffff;
     color: #000000;
     position: relative;
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       width: 240px;
     }
   }
@@ -39,10 +39,10 @@
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       display: flex;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       width: 640px;
     }
   }
@@ -89,14 +89,16 @@ tbody {
   padding-bottom: 20px;
   display: none;
 }
-tbody{
-  @include min-width($tablet-width){
+
+tbody {
+  @include min-width($tablet-width) {
     display: flex;
     flex-wrap: wrap;
   }
 }
-tr{
-  @include min-width($tablet-width){
+
+tr {
+  @include min-width($tablet-width) {
     width: 320px;
   }
 }

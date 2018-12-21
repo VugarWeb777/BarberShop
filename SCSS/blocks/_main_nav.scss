@@ -1,18 +1,18 @@
 .main-nav {
   width: 320px;
   margin: 0 auto;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     width: auto;
     margin: 0;
   }
   &__wrapper {
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       display: flex;
       justify-content: space-between;
       width: 640px;
       margin: 0 auto;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       width: 960px;
     }
   }
@@ -53,15 +53,15 @@
   @media (max-width: 767px) {
     background-color: #81654f;
   }
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     display: flex;
     width: 570px;
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     width: 780px;
   }
   &__item {
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
       border-bottom: 1px solid #604735;
       box-shadow: 0px 1px 0px #886d5a;
     }
@@ -72,14 +72,14 @@
 }
 
 .user-list {
-  @media (max-width: 767px){
+  @media (max-width: 767px) {
     background-color: #6a4d38;
   }
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     display: flex;
     width: 60px;
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     width: 160px;
   }
   &__login {
