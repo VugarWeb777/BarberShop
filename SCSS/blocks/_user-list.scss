@@ -1,0 +1,86 @@
+.user-list {
+  @media (max-width: 767px) {
+    background-color: #6a4d38;
+  }
+  @include min-width($tablet-width) {
+    display: flex;
+    width: 60px;
+  }
+  @include min-width($desktop-width) {
+    width: auto;
+    max-width: 160px;
+  }
+  &__item {
+  }
+  &__login {
+    position: relative;
+    display: block;
+    padding: 17px 21px;
+    padding-left: 49px;
+    line-height: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    @include min-width($tablet-width) {
+      width: 60px;
+      height: 70px;
+      padding: 0;
+      font-size: 0;
+    }
+    @include min-width($desktop-width) {
+      position: relative;
+      width: auto;
+      height: auto;
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 23px;
+      padding-left: 50px;
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      &:hover {
+        color: #000000;
+        background-color: #ffffff;
+      }
+      &:active {
+        color: rgba(0, 0, 0, 0.3);
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+i.fas.fa-sign-in-alt {
+  position: absolute;
+  top: 17px;
+  left: 21px;
+
+  opacity: 0.3;
+  width: 16px;
+  height: 16px;
+  @include min-width($tablet-width) {
+    top: 24px;
+    left: 12px;
+    font-size: 24px;
+    &:hover {
+      opacity: 1;
+      color: #826650;
+    }
+    &:active {
+      opacity: 0.3;
+      color: #ffffff;
+    }
+  }
+  @include min-width($desktop-width) {
+    top: 25px;
+    left: 15px;
+    &:hover {
+      opacity: 0.3;
+      color: #000000;
+    }
+    &:active {
+      opacity: 0.1;
+    }
+  }
+}

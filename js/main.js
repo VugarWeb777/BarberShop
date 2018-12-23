@@ -1,10 +1,17 @@
-/*$(document).ready(function(){
-    //мобильное меню
-    var btn_menu = $('.main-nav__toggle');
-    var main_nav = $('.main-nav');
-    btn_menu.click(function (e) {
-        e.preventDefault();
-        main_nav.slideToggle("slow");
-    })
-});*/
+window.onload = function(){
+  var navMain = document.querySelector('.main-nav');
+  var navToggle = document.querySelector('.main-nav__toggle');
+
+  navMain.classList.remove('main-nav--nojs');
+
+  navToggle.addEventListener("click", function () {
+    if (navMain.classList.contains('main-nav--closed')){
+      navMain.classList.remove('main-nav--closed');
+      navMain.classList.add('main-nav--opened');
+    } else {
+      navMain.classList.add('main-nav--closed');
+      navMain.classList.remove('main-nav--opened');
+    }
+  });
+};
 

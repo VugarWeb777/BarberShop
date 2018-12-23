@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     color: #fff;
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       display: flex;
     }
   }
@@ -24,10 +24,10 @@
     line-height: 30px;
     text-align: center;
     text-transform: uppercase;
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       text-align: left;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       text-align: center;
     }
   }
@@ -36,10 +36,10 @@
     line-height: 27px;
     text-align: center;
     margin-bottom: 0;
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       text-align: left;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       text-align: center;
     }
   }
@@ -52,10 +52,10 @@
     }
   }
   &__description-block {
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       width: 450px;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       width: 300px;
     }
   }
@@ -67,7 +67,7 @@
       border-bottom: 2px solid #4a4a4a;
       padding-bottom: 40px;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       display: block;
     }
   }
@@ -75,7 +75,7 @@
     @include min-width($tablet-width) {
       margin-right: 30px;
     }
-    @include min-width($desktop-width){
+    @include min-width($desktop-width) {
       margin: 0;
     }
   }
@@ -86,7 +86,7 @@
   @include min-width($tablet-width) {
     display: flex;
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     display: block;
   }
 }
@@ -96,7 +96,7 @@
   @include min-width($tablet-width) {
     display: flex;
   }
-  @include min-width($desktop-width){
+  @include min-width($desktop-width) {
     display: block;
   }
 }

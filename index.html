@@ -18,13 +18,16 @@
     <picture>
       <source media="(min-width: 1150px)" srcset="images/logotype-desktop.svg.png">
       <source media="(min-width: 768px)" srcset="images/logotype-tablet.svg.png">
-      <img src="images/logotype-mobile.png" alt="barbershop" class="page-header__logo-img">
+      <img src="images/logotype-mobile.png" alt="barbershop">
     </picture>
   </div>
-  <nav class="main-nav">
+  <nav class="main-nav main-nav--closed main-nav--nojs">
+    <button class="main-nav__toggle" type="button">
+      <i class="fas fa-bars"></i>
+    </button>
     <div class="main-nav__wrapper">
       <ul class="main-nav__list site-list">
-        <li class="site-list__item item--active">
+        <li class="site-list__item site-list__item--active">
           <a class="site-list__link" href="#">Главная</a>
         </li>
         <li class="site-list__item">
@@ -42,7 +45,9 @@
       </ul>
       <ul class="main-nav__list user-list">
         <li class="user-list__item">
-          <a class="user-list__login" href="login.html">Войти</a>
+          <a class="user-list__login" href="login.html">
+            <i class="fas fa-sign-in-alt"></i>
+            Войти</a>
         </li>
       </ul>
     </div>
