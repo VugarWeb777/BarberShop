@@ -961,9 +961,8 @@ a.contacts__phone.button {
 .social__list {
   padding: 0;
   list-style: none;
-  padding-left: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 60px; }
 
 .social__link {
@@ -972,5 +971,21 @@ a.contacts__phone.button {
 
 .page-footer__copyright {
   text-align: center; }
+
+i.fab.fa-vk {
+  font-size: 48px; }
+
+i.fab.fa-facebook-f {
+  font-size: 48px; }
+
+i.fab.fa-instagram {
+  font-size: 48px; }
+
+.html-academy {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */

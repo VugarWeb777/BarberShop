@@ -35,9 +35,8 @@ a.contacts__phone.button {
 .social__list {
   padding: 0;
   list-style: none;
-  padding-left: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 60px;
 }
 
@@ -48,4 +47,16 @@ a.contacts__phone.button {
 
 .page-footer__copyright {
   text-align: center;
+}
+i.fab.fa-vk {
+  font-size: 48px;
+}
+i.fab.fa-facebook-f {
+  font-size: 48px;
+}
+i.fab.fa-instagram {
+  font-size: 48px;
+}
+.html-academy{
+  @include link();
 }
