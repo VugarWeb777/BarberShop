@@ -655,6 +655,19 @@ i.fas.fa-sign-in-alt {
     background-color: #ffffff;
     color: #000000;
     position: relative; }
+    @media (min-width: 768px) {
+      .stats__header {
+        display: flex;
+        position: relative;
+        flex-wrap: wrap; }
+        .stats__header::before {
+          content: "";
+          position: absolute;
+          top: 27px;
+          left: -15px;
+          border: 15px solid transparent;
+          border-bottom-color: #ffffff;
+          transform: rotate(45deg); } }
     @media (min-width: 1150px) {
       .stats__header {
         width: 240px; } }
@@ -664,14 +677,16 @@ i.fas.fa-sign-in-alt {
     line-height: 30px;
     display: block;
     text-transform: uppercase;
-    margin-top: 40px; }
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: bold; }
   .stats__intro {
+    margin: 0;
     font-size: 20px;
     line-height: 27px;
     text-align: center; }
   .stats__list {
     width: 100%;
-    border-spacing: 0px;
     border-collapse: collapse; }
     @media (min-width: 768px) {
       .stats__list {
@@ -679,16 +694,22 @@ i.fas.fa-sign-in-alt {
     @media (min-width: 1150px) {
       .stats__list {
         width: 640px; } }
+  .stats__value, .stats__field {
+    width: 50%;
+    padding: 20px;
+    padding-bottom: 20px;
+    vertical-align: top; }
   .stats__value {
+    padding-right: 0;
     font-size: 40px;
-    line-height: 18px;
-    padding: 40px 0px 40px 20px;
-    color: #ffffff;
-    font-weight: bold;
-    text-align: left; }
+    line-height: 40px; }
+    .stats__value sup {
+      top: -0.35em;
+      margin-left: 5px; }
   .stats__field {
-    color: #f7f4f1;
-    padding-right: 20px;
+    padding-left: 0;
+    font-size: 18px;
+    line-height: 18px;
     text-align: right; }
 
 tbody tr:nth-child(1) {
@@ -705,10 +726,18 @@ tbody tr:nth-child(4) {
   line-height: 27px;
   text-align: center;
   color: #626262;
-  display: block;
-  background-color: #242424;
-  padding-bottom: 20px;
-  display: none; }
+  display: block; }
+  .stats__legend--bottom {
+    padding-top: 20px;
+    padding-bottom: 14px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    background-color: #292929; }
+  .stats__legend--top {
+    display: none; }
+  .stats__legend sup {
+    top: -0.25em;
+    font-size: 90%; }
 
 @media (min-width: 768px) {
   tbody {

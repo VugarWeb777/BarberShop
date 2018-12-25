@@ -18,6 +18,21 @@
     background-color: #ffffff;
     color: #000000;
     position: relative;
+    @include min-width($tablet-width){
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 27px;
+        left: -15px;
+
+        border: 15px solid transparent;
+        border-bottom-color: #ffffff;
+        transform: rotate(45deg);
+      }
+    }
     @include min-width($desktop-width) {
       width: 240px;
     }
@@ -29,15 +44,17 @@
     display: block;
     text-transform: uppercase;
     margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: bold;
   }
   &__intro {
+    margin: 0;
     font-size: 20px;
     line-height: 27px;
     text-align: center;
   }
   &__list {
     width: 100%;
-    border-spacing: 0px;
     border-collapse: collapse;
     @include min-width($tablet-width) {
       display: flex;
@@ -46,17 +63,25 @@
       width: 640px;
     }
   }
-  &__value {
-    font-size: 40px;
-    line-height: 18px;
-    padding: 40px 0px 40px 20px;
-    color: #ffffff;
-    font-weight: bold;
-    text-align: left;
+  &__value, &__field {
+    width: 50%;
+    padding: 20px;
+    padding-bottom: 20px;
+    vertical-align: top;
   }
-  &__field {
-    color: #f7f4f1;
-    padding-right: 20px;
+  &__value{
+    padding-right: 0;
+    font-size: 40px;
+    line-height: 40px;
+    & sup{
+      top: -0.35em;
+      margin-left: 5px;
+    }
+  }
+  &__field{
+    padding-left: 0;
+    font-size: 18px;
+    line-height: 18px;
     text-align: right;
   }
 }
@@ -85,10 +110,22 @@ tbody {
   text-align: center;
   color: #626262;
   display: block;
-  background-color: #242424;
-  padding-bottom: 20px;
-  display: none;
+  &--bottom{
+    padding-top: 20px;
+    padding-bottom: 14px;
+    text-align: center;
+    color: rgba(255,255,255, 0.3);
+    background-color: $bg-darkgrey;
+  }
+  &--top{
+    display: none;
+  }
+  & sup{
+    top:-0.25em;
+    font-size: 90%;
+  }
 }
+
 
 tbody {
   @include min-width($tablet-width) {
