@@ -4,12 +4,21 @@
     background-color: #f8f5f2;
     color: #000000;
     @include container;
+    @include min-width($tablet-width) {
+      position: relative;
+    }
   }
   &__title {
     text-align: center;
     margin-top: 0;
     padding-top: 15px;
     text-transform: uppercase;
+    @include min-width($tablet-width) {
+      text-align: left;
+      font-size: 40px;
+      line-height: 30px;
+      padding-top: 40px;
+    }
   }
   &__list {
     height: auto;
@@ -45,3 +54,12 @@
   }
 }
 
+.reviews__write.button {
+  @include min-width($tablet-width) {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 160px;
+    padding: 10px;
+  }
+}

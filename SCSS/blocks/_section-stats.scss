@@ -18,11 +18,12 @@
     background-color: #ffffff;
     color: #000000;
     position: relative;
-    @include min-width($tablet-width){
+    @include min-width($tablet-width) {
       display: flex;
       position: relative;
       flex-wrap: wrap;
-      &::before{
+      justify-content: space-between;
+      &::before {
         content: "";
         position: absolute;
         top: 27px;
@@ -34,7 +35,12 @@
       }
     }
     @include min-width($desktop-width) {
+      display: block;
       width: 240px;
+
+      &::before{
+        top: 22px;
+      }
     }
   }
   &__slogan {
@@ -43,15 +49,37 @@
     line-height: 30px;
     display: block;
     text-transform: uppercase;
-    margin-top: 40px;
     margin-bottom: 15px;
     font-weight: bold;
+    @include min-width($tablet-width) {
+      width: 240px;
+      margin-bottom: 18px;
+      font-size: 40px;
+      line-height: 40px;
+      text-align: left;
+      text-transform: none;
+    }
+    @include min-width($desktop-width){
+      width: auto;
+      margin-bottom: 42px;
+    }
   }
   &__intro {
     margin: 0;
     font-size: 20px;
     line-height: 27px;
     text-align: center;
+    @include min-width($tablet-width) {
+      width: 210px;
+      margin-top: 5px;
+      padding-right: 47px;
+      text-align: left;
+    }
+    @include min-width($desktop-width){
+      width: auto;
+      margin-bottom: 32px;
+      margin-right: 30px;
+    }
   }
   &__list {
     width: 100%;
@@ -60,6 +88,7 @@
       display: flex;
     }
     @include min-width($desktop-width) {
+      display: flex;
       width: 640px;
     }
   }
@@ -69,20 +98,33 @@
     padding-bottom: 20px;
     vertical-align: top;
   }
-  &__value{
+  &__value {
     padding-right: 0;
     font-size: 40px;
     line-height: 40px;
-    & sup{
+    @include min-width($tablet-width) {
+      margin-bottom: 7px;
+      font-size: 72px;
+      line-height: 72px;
+    }
+    & sup {
       top: -0.35em;
       margin-left: 5px;
     }
   }
-  &__field{
+  &__field {
     padding-left: 0;
     font-size: 18px;
     line-height: 18px;
     text-align: right;
+    @include min-width($tablet-width) {
+      font-size: 20px;
+      line-height: 27px;
+      text-align: left;
+      & br {
+        display: none;
+      }
+    }
   }
 }
 
@@ -110,32 +152,52 @@ tbody {
   text-align: center;
   color: #626262;
   display: block;
-  &--bottom{
+  &--bottom {
     padding-top: 20px;
     padding-bottom: 14px;
     text-align: center;
-    color: rgba(255,255,255, 0.3);
+    color: rgba(255, 255, 255, 0.3);
     background-color: $bg-darkgrey;
+    @include min-width($tablet-width) {
+      display: none;
+    }
   }
-  &--top{
+  &--top {
     display: none;
+    @include min-width($tablet-width) {
+      display: block;
+      width: 240px;
+      color: rgba(0, 0, 0, 0.3);
+    }
+    @include min-width($desktop-width){
+      width: auto;
+    }
   }
-  & sup{
-    top:-0.25em;
+  & sup {
+    top: -0.25em;
     font-size: 90%;
   }
 }
 
-
-tbody {
+.stats__list tbody {
   @include min-width($tablet-width) {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-tr {
+.stats__list tr {
   @include min-width($tablet-width) {
-    width: 320px;
+    width: 250px;
+    padding: 25px 35px;
+    padding-bottom: 28px;
+  }
+}
+
+.stats__list td {
+  @include min-width($tablet-width) {
+    display: block;
+    width: auto;
+    padding: 0;
   }
 }

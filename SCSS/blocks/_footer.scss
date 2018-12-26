@@ -48,15 +48,19 @@ a.contacts__phone.button {
 .page-footer__copyright {
   text-align: center;
 }
+
 i.fab.fa-vk {
   font-size: 48px;
 }
+
 i.fab.fa-facebook-f {
   font-size: 48px;
 }
+
 i.fab.fa-instagram {
   font-size: 48px;
 }
-.html-academy{
+
+.html-academy {
   @include link();
 }
