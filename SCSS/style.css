@@ -973,7 +973,7 @@ li.news__item:nth-child(3) {
   .news__to-all.button {
     position: absolute;
     top: 40px;
-    right: 40px;
+    right: 60px;
     width: 160px;
     padding: 10px; } }
 
@@ -1037,7 +1037,7 @@ li.news__item:nth-child(3) {
   .reviews__write.button {
     position: absolute;
     top: 40px;
-    right: 40px;
+    right: 60px;
     width: 160px;
     padding: 10px; } }
 
@@ -1058,14 +1058,22 @@ li.news__item:nth-child(3) {
       .page-footer__wrapper {
         width: 960px;
         padding: 0 120px; } }
+    @media (min-width: 768px) {
+      .page-footer__wrapper {
+        position: relative;
+        padding-bottom: 40px; } }
   .page-footer__contacts {
     text-align: center; }
+    @media (min-width: 768px) {
+      .page-footer__contacts {
+        padding-top: 40px; } }
 
 h1.contacts__title {
   margin-top: 0;
   font-size: 18px;
   line-height: 27px;
-  margin: 0; }
+  margin: 0;
+  text-transform: uppercase; }
 
 p.contacts__text {
   font-size: 18px;
@@ -1078,13 +1086,24 @@ a.contacts__phone.button {
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 0; }
+  @media (min-width: 768px) {
+    a.contacts__phone.button {
+      padding: 0;
+      margin: 0;
+      width: 200px;
+      border: none;
+      text-align: left;
+      display: table; } }
 
 .social__list {
   padding: 0;
   list-style: none;
   display: flex;
-  justify-content: space-around;
-  height: 60px; }
+  justify-content: space-around; }
+  @media (min-width: 768px) {
+    .social__list {
+      margin-top: 50px;
+      margin-bottom: 0; } }
 
 .social__link {
   color: #ffffff;
@@ -1092,6 +1111,12 @@ a.contacts__phone.button {
 
 .page-footer__copyright {
   text-align: center; }
+  @media (min-width: 768px) {
+    .page-footer__copyright {
+      display: inline-block;
+      position: absolute;
+      top: 40px;
+      right: 60px; } }
 
 i.fab.fa-vk {
   font-size: 48px; }
@@ -1108,5 +1133,17 @@ i.fab.fa-instagram {
   text-decoration: none;
   text-transform: uppercase;
   color: #ffffff; }
+  @media (min-width: 768px) {
+    .html-academy {
+      width: 200px; } }
+
+@media (min-width: 768px) {
+  .contacts__wrapper {
+    text-align: left;
+    display: table; } }
+
+@media (min-width: 768px) {
+  .addres br {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

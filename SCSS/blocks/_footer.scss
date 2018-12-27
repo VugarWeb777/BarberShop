@@ -5,9 +5,16 @@
     color: #ffffff;
     @include container;
     padding-top: 10px;
+    @include min-width($tablet-width){
+      position: relative;
+      padding-bottom: 40px;
+    }
   }
   &__contacts {
     text-align: center;
+    @include min-width($tablet-width){
+      padding-top: 40px;
+    }
   }
 }
 
@@ -16,6 +23,7 @@ h1.contacts__title {
   font-size: 18px;
   line-height: 27px;
   margin: 0;
+  text-transform: uppercase;
 }
 
 p.contacts__text {
@@ -30,6 +38,14 @@ a.contacts__phone.button {
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 0;
+  @include min-width($tablet-width){
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border: none;
+    text-align: left;
+    display: table;
+  }
 }
 
 .social__list {
@@ -37,7 +53,10 @@ a.contacts__phone.button {
   list-style: none;
   display: flex;
   justify-content: space-around;
-  height: 60px;
+  @include min-width($tablet-width){
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 }
 
 .social__link {
@@ -47,6 +66,12 @@ a.contacts__phone.button {
 
 .page-footer__copyright {
   text-align: center;
+  @include min-width($tablet-width){
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    right: 60px;
+  }
 }
 
 i.fab.fa-vk {
@@ -63,4 +88,19 @@ i.fab.fa-instagram {
 
 .html-academy {
   @include link();
+  @include min-width($tablet-width){
+    width: 200px;
+  }
+}
+
+.contacts__wrapper{
+  @include min-width($tablet-width){
+    text-align: left;
+    display: table;
+  }
+}
+.addres br{
+  @include min-width($tablet-width){
+    display: none;
+  }
 }

@@ -63,7 +63,7 @@ li.news__item:nth-child(3) {
   @include min-width($tablet-width) {
     position: absolute;
     top: 40px;
-    right: 40px;
+    right: 60px;
     width: 160px;
     padding: 10px;
   }
