@@ -7,6 +7,8 @@
     @include container;
     @include min-width($tablet-width) {
       position: relative;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
   }
   &__title {
@@ -18,7 +20,6 @@
     @include min-width($tablet-width) {
       text-align: left;
       margin-bottom: 55px;
-      padding-top: 40px;
       font-size: 40px;
       line-height: 30px;
     }

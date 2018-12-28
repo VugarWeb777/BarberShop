@@ -1,29 +1,27 @@
 .page-footer {
   height: auto;
   &__wrapper {
-    background-color: #292929;
     color: #ffffff;
+    background-color: #292929;
     @include container;
     padding-top: 10px;
-    @include min-width($tablet-width){
-      position: relative;
+    @include min-width($tablet-width) {
+      padding-top: 40px;
       padding-bottom: 40px;
+      position: relative;
     }
   }
   &__contacts {
     text-align: center;
-    @include min-width($tablet-width){
-      padding-top: 40px;
-    }
   }
 }
 
 h1.contacts__title {
-  margin-top: 0;
   font-size: 18px;
   line-height: 27px;
-  margin: 0;
   text-transform: uppercase;
+  margin: 0;
+  margin-top: 0;
 }
 
 p.contacts__text {
@@ -32,41 +30,41 @@ p.contacts__text {
 }
 
 a.contacts__phone.button {
-  color: #fff;
   display: block;
+  color: #fff;
   text-decoration: none;
   margin-left: 20px;
   margin-right: 20px;
   padding: 10px 0;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
+    display: table;
+    width: 200px;
     padding: 0;
     margin: 0;
-    width: 200px;
     border: none;
     text-align: left;
-    display: table;
   }
 }
 
 .social__list {
-  padding: 0;
-  list-style: none;
   display: flex;
   justify-content: space-around;
-  @include min-width($tablet-width){
+  padding: 0;
+  list-style: none;
+  @include min-width($tablet-width) {
     margin-top: 50px;
     margin-bottom: 0;
   }
 }
 
 .social__link {
-  color: #ffffff;
   font-size: 18px;
+  color: #ffffff;
 }
 
 .page-footer__copyright {
   text-align: center;
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     display: inline-block;
     position: absolute;
     top: 40px;
@@ -76,31 +74,41 @@ a.contacts__phone.button {
 
 i.fab.fa-vk {
   font-size: 48px;
+  &:hover {
+    color: #5f8bb7;
+  }
 }
 
 i.fab.fa-facebook-f {
   font-size: 48px;
+  &:hover {
+    color: #1d3465;
+  }
 }
 
 i.fab.fa-instagram {
   font-size: 48px;
+  &:hover {
+    color: #c04d1c;
+  }
 }
 
 .html-academy {
   @include link();
-  @include min-width($tablet-width){
+  @include min-width($tablet-width) {
     width: 200px;
   }
 }
 
-.contacts__wrapper{
-  @include min-width($tablet-width){
-    text-align: left;
+.contacts__wrapper {
+  @include min-width($tablet-width) {
     display: table;
+    text-align: left;
   }
 }
-.addres br{
-  @include min-width($tablet-width){
+
+.addres br {
+  @include min-width($tablet-width) {
     display: none;
   }
 }

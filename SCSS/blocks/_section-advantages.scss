@@ -16,6 +16,7 @@
     color: #fff;
     @include min-width($desktop-width) {
       display: flex;
+      border: none;
     }
   }
   &__title {
@@ -41,6 +42,8 @@
     }
     @include min-width($desktop-width) {
       text-align: center;
+      width: auto;
+      padding: 0px 30px;
     }
   }
   &__toggles {
@@ -98,5 +101,20 @@
   }
   @include min-width($desktop-width) {
     display: block;
+  }
+}
+.advantages__description-wrapper{
+  @include min-width($desktop-width){
+    border-right: 2px solid #4a4a4a;
+  }
+}
+li.advantages__item:last-child> .advantages__description-wrapper{
+  @include min-width($desktop-width){
+    border-right: none;
+  }
+}
+li.advantages__item--price{
+  @include min-width($tablet-width){
+    border-bottom: none;
   }
 }
