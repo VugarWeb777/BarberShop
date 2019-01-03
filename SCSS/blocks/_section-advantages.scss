@@ -104,7 +104,11 @@
   }
 }
 .advantages__description-wrapper{
+  @include min-width($tablet-width){
+    display: flex;
+  }
   @include min-width($desktop-width){
+    display: block;
     border-right: 2px solid #4a4a4a;
   }
 }

@@ -911,8 +911,12 @@ tbody tr:nth-child(4) {
     .advantages__list > li:nth-child(3) {
       display: block; } }
 
+@media (min-width: 768px) {
+  .advantages__description-wrapper {
+    display: flex; } }
 @media (min-width: 1150px) {
   .advantages__description-wrapper {
+    display: block;
     border-right: 2px solid #4a4a4a; } }
 
 @media (min-width: 1150px) {
@@ -1059,6 +1063,20 @@ li.news__item:nth-child(3) {
     right: 60px;
     width: 160px;
     padding: 10px; } }
+
+.reviews__picture > img {
+  width: 50px;
+  height: 50px; }
+  @media (min-width: 768px) {
+    .reviews__picture > img {
+      width: 83px;
+      height: 83px;
+      border-radius: 50%; } }
+  @media (min-width: 1150px) {
+    .reviews__picture > img {
+      width: 250px;
+      height: 162px;
+      border-radius: 0; } }
 
 .page-footer {
   height: auto; }
