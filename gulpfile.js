@@ -1,6 +1,6 @@
 const gulp = require ('gulp');
 const sass = require ('gulp-sass');
-const watch = require ('gulp-watch');
+const plumber = require ('gulp-plumber');
 const browserSync = require ('browser-sync').create();
 
 const paths = {
@@ -15,10 +15,12 @@ const paths = {
 };
 
 
-gulp.task('style', function(){
-  gulp.watch(paths.styles.src).on('change', function() {
+gulp.task('styles', function(){
     return gulp.src(paths.styles.src)
       .pipe(sass())
+      .pipe(plumber())
       .pipe(gulp.dest(paths.styles.dest))
-  });
 });
+
+gulp.watch(paths.styles.src, gulp.series('styles'));
+
