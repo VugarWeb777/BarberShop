@@ -1,26 +1,45 @@
+"use strict";
+
 const gulp = require ('gulp');
 const sass = require ('gulp-sass');
 const plumber = require ('gulp-plumber');
-const browserSync = require ('browser-sync').create();
+/*const debug = require ('gulp-debug');*/
 
-const paths = {
-  styles: {
-    src: 'source/SCSS/**/*.scss',
-    dest: 'build/css/'
+const path = {
+  build: { //Тут мы укажем куда складывать готовые после сборки файлы
+    html: 'build/',
+    js: 'build/js/',
+    css: 'build/css/',
+    img: 'build/img/',
+    fonts: 'build/fonts/'
   },
-  scripts: {
-    src: 'source/js/**/*.js',
-    dest: 'build/js/'
-  }
+  src: { //Пути откуда брать исходники
+    html: 'source/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+    js: 'source/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+    style: 'source/style/style.scss',
+    img: 'source/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    fonts: 'source/fonts/**/*.*'
+  },
+  watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+    html: 'source/**/*.html',
+    js: 'source/js/**/*.js',
+    style: 'source/style/**/*.scss',
+    img: 'source/img/**/*.*',
+    fonts: 'source/fonts/**/*.*'
+  },
+  clean: './build'
 };
 
 
 gulp.task('styles', function(){
-    return gulp.src(paths.styles.src)
+    return gulp.src(path.src.style)
+      /*.pipe(debug({title: 'src'}))*/
       .pipe(sass())
+      /*.pipe(debug({title: 'sass'}))*/
       .pipe(plumber())
-      .pipe(gulp.dest(paths.styles.dest))
+      /*.pipe(debug({title: 'plumber'}))*/
+      .pipe(gulp.dest(path.build.css))
 });
 
-gulp.watch(paths.styles.src, gulp.series('styles'));
+gulp.watch(path.watch.style, gulp.series('styles'));
 
