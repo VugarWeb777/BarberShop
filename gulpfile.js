@@ -3,6 +3,10 @@
 const gulp = require ('gulp');
 const sass = require ('gulp-sass');
 const plumber = require ('gulp-plumber');
+const sourcemaps = require ('gulp-sourcemaps');
+const gulpIf = require ('gulp-if');
+const del = require ('del');
+const isDevelopment = true;
 /*const debug = require ('gulp-debug');*/
 
 const path = {
@@ -33,13 +37,30 @@ const path = {
 
 gulp.task('styles', function(){
     return gulp.src(path.src.style)
-      /*.pipe(debug({title: 'src'}))*/
+      .pipe(gulpIf(isDevelopment === true, sourcemaps.init()))
       .pipe(sass())
-      /*.pipe(debug({title: 'sass'}))*/
       .pipe(plumber())
-      /*.pipe(debug({title: 'plumber'}))*/
+      .pipe(gulpIf(isDevelopment === true, sourcemaps.write()))
       .pipe(gulp.dest(path.build.css))
 });
+
+gulp.task('clean', function () {
+  return del('build');
+});
+gulp.task('copy', function() {
+  return gulp.src([
+    "source/img/**",
+    "source/js/**",
+    "source/*.html"
+  ],{
+    base: "source"
+  })
+    .pipe(gulp.dest('build'));
+});
+
+gulp.task('build', gulp.series(
+  'clean',
+  gulp.parallel('styles', 'copy')));
 
 gulp.watch(path.watch.style, gulp.series('styles'));
 
