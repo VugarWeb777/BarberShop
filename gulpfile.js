@@ -6,8 +6,10 @@ const plumber = require ('gulp-plumber');
 const sourcemaps = require ('gulp-sourcemaps');
 const gulpIf = require ('gulp-if');
 const del = require ('del');
+const newer = require ('gulp-newer');
 const isDevelopment = true;
-/*const debug = require ('gulp-debug');*/
+
+const debug = require ('gulp-debug');
 
 const path = {
   build: { //Тут мы укажем куда складывать готовые после сборки файлы
@@ -54,6 +56,8 @@ gulp.task('copy', function() {
     path.src.js,
     path.src.html
   ], {since: gulp.lastRun('copy'), base: 'source'})
+    .pipe(newer('source'))
+    .pipe(debug({title: 'copy'}))
     .pipe(gulp.dest('build'));
 });
 
@@ -61,6 +65,9 @@ gulp.task('build', gulp.series(
   'clean',
   gulp.parallel('styles', 'copy')));
 
-gulp.watch(path.watch.style, gulp.series('styles'));
-gulp.watch('source/**/*', gulp.series('copy'));
+gulp.task('watch', function () {
+  gulp.watch(path.watch.style, gulp.series('styles'));
+  gulp.watch('source/**/*', gulp.series('copy'));
+});
 
+gulp.task('dev', gulp.series('build','watch'));
