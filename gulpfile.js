@@ -7,6 +7,10 @@ const sourcemaps = require ('gulp-sourcemaps');
 const gulpIf = require ('gulp-if');
 const del = require ('del');
 const newer = require ('gulp-newer');
+const imagemin = require ('gulp-imagemin');
+const postcss = require ('gulp-postcss');
+const autoprefixer = require ('autoprefixer');
+
 const isDevelopment = true;
 
 const debug = require ('gulp-debug');
@@ -41,10 +45,12 @@ gulp.task('styles', function(){
     return gulp.src(path.src.style)
       .pipe(gulpIf(isDevelopment === true, sourcemaps.init()))
       .pipe(sass())
+      .pipe(postcss([autoprefixer()]))
       .pipe(plumber())
       .pipe(gulpIf(isDevelopment === true, sourcemaps.write()))
       .pipe(gulp.dest(path.build.css))
 });
+
 
 gulp.task('clean', function () {
   return del('build');
@@ -59,6 +65,22 @@ gulp.task('copy', function() {
     .pipe(newer('source'))
     .pipe(debug({title: 'copy'}))
     .pipe(gulp.dest('build'));
+});
+
+gulp.task('images', function () {
+  return gulp.src(path.src.img)
+    .pipe(newer(path.build.img))
+    .pipe(imagemin([
+      imagemin.optipng({ optimizationLevel: 3 }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: true},
+          {cleanupIDs: false}
+        ]
+      })
+    ]))
+    .pipe(gulp.dest(path.build.img));
 });
 
 gulp.task('build', gulp.series(
