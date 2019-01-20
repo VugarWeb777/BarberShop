@@ -1,23 +1,26 @@
 "use strict";
 
-const gulp = require ('gulp');
-const sass = require ('gulp-sass');
-const plumber = require ('gulp-plumber');
-const sourcemaps = require ('gulp-sourcemaps');
-const gulpIf = require ('gulp-if');
-const del = require ('del');
-const newer = require ('gulp-newer');
-const imagemin = require ('gulp-imagemin');
-const postcss = require ('gulp-postcss');
-const autoprefixer = require ('autoprefixer');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const plumber = require('gulp-plumber');//Отслеживание ошибок
+const sourcemaps = require('gulp-sourcemaps');// Исходные карты
+const gulpIf = require('gulp-if');// Условия
+const del = require('del');// моудль удаления
+const newer = require('gulp-newer');//копирует только измененые файлы
+const autoPrefix = require('gulp-autoprefixer');
+const remember = require('gulp-remember');
+const imagemin = require('gulp-imagemin');
+const cleanCSS = require('gulp-clean-css');// Минификатор css
+const rename = require('gulp-rename');
+const browserSync = require('browser-sync').create();
 
-const isDevelopment = true;
+const isDevelopment = true;//статус разработки
 
-const debug = require ('gulp-debug');
+const debug = require('gulp-debug');//дебаг
 
 const path = {
   build: { //Тут мы укажем куда складывать готовые после сборки файлы
-    html: 'build/',
+    html: '/build/',
     js: 'build/js/',
     css: 'build/css/',
     img: 'build/img/',
@@ -41,55 +44,73 @@ const path = {
 };
 
 
-gulp.task('styles', function(){
-    return gulp.src(path.src.style)
-      .pipe(gulpIf(isDevelopment === true, sourcemaps.init()))
-      .pipe(sass())
-      .pipe(postcss([autoprefixer()]))
-      .pipe(plumber())
-      .pipe(gulpIf(isDevelopment === true, sourcemaps.write()))
-      .pipe(gulp.dest(path.build.css))
+gulp.task('styles', function () {
+  return gulp.src(path.src.style, {since: gulp.lastRun('styles')})
+    .pipe(remember('styles'))
+    .pipe(gulpIf(isDevelopment === true, sourcemaps.init()))
+    .pipe(sass())
+    .pipe(autoPrefix({browsers: ['last 2 versions']}))
+    .pipe(gulp.dest(path.build.css))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename('style.min.css'))
+    .pipe(plumber())
+    .pipe(gulpIf(isDevelopment === true, sourcemaps.write()))
+    .pipe(gulp.dest(path.build.css))
+    .pipe(browserSync.stream())
 });
 
 
 gulp.task('clean', function () {
   return del('build');
 });
-gulp.task('copy', function() {
+gulp.task('copy', function () {
   return gulp.src([
     path.src.fonts,
     path.src.img,
     path.src.js,
     path.src.html
   ], {since: gulp.lastRun('copy'), base: 'source'})
-    .pipe(newer('source'))
+    .pipe(newer('build'))
     .pipe(debug({title: 'copy'}))
     .pipe(gulp.dest('build'));
 });
 
 gulp.task('images', function () {
-  return gulp.src(path.src.img)
-    .pipe(newer(path.build.img))
-    .pipe(imagemin([
-      imagemin.optipng({ optimizationLevel: 3 }),
-      imagemin.jpegtran({ progressive: true }),
+  return gulp
+    .src(path.build.img)
+    .pipe((imagemin([
+      imagemin.jpegtran({progressive: true, arithmetic: true, buffer: true}),
       imagemin.svgo({
         plugins: [
           {removeViewBox: true},
           {cleanupIDs: false}
         ]
       })
-    ]))
+    ])))
     .pipe(gulp.dest(path.build.img));
+});
+
+gulp.task('serve', function () {
+  browserSync.init({
+    server: {
+      baseDir: "build"
+    }
+  });
+  browserSync.watch('source/**/*.*').on('change', browserSync.reload);
 });
 
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('styles', 'copy')));
+  gulp.parallel('copy', 'styles')));
 
 gulp.task('watch', function () {
   gulp.watch(path.watch.style, gulp.series('styles'));
   gulp.watch('source/**/*', gulp.series('copy'));
 });
 
-gulp.task('dev', gulp.series('build','watch'));
+gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'serve')));
+
+
+
+
+
