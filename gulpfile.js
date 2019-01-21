@@ -12,6 +12,7 @@ const remember = require('gulp-remember');
 const imagemin = require('gulp-imagemin');
 const cleanCSS = require('gulp-clean-css');// Минификатор css
 const rename = require('gulp-rename');
+const notify = require('gulp-notify');
 const browserSync = require('browser-sync').create();
 
 const isDevelopment = true;//статус разработки
@@ -46,6 +47,14 @@ const path = {
 
 gulp.task('styles', function () {
   return gulp.src(path.src.style, {since: gulp.lastRun('styles')})
+    .pipe(plumber({
+      errorHandler: notify.onError(function (err) {
+        return{
+          title: 'Styles',
+          message: err.message
+        };
+      })
+    }))
     .pipe(remember('styles'))
     .pipe(gulpIf(isDevelopment === true, sourcemaps.init()))
     .pipe(sass())
@@ -53,7 +62,6 @@ gulp.task('styles', function () {
     .pipe(gulp.dest(path.build.css))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename('style.min.css'))
-    .pipe(plumber())
     .pipe(gulpIf(isDevelopment === true, sourcemaps.write()))
     .pipe(gulp.dest(path.build.css))
     .pipe(browserSync.stream())
@@ -99,7 +107,7 @@ gulp.task('serve', function () {
   browserSync.watch('source/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task('build', gulp.series(
+gulp.task('dev', gulp.series(
   'clean',
   gulp.parallel('copy', 'styles')));
 
@@ -108,7 +116,7 @@ gulp.task('watch', function () {
   gulp.watch('source/**/*', gulp.series('copy'));
 });
 
-gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'serve')));
+gulp.task('build', gulp.series('dev', gulp.parallel('watch', 'serve')));
 
 
 
