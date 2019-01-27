@@ -1,21 +1,25 @@
 "use strict";
 
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass');//Компилятор scss
 const plumber = require('gulp-plumber');//Отслеживание ошибок
 const sourcemaps = require('gulp-sourcemaps');// Исходные карты
 const gulpIf = require('gulp-if');// Условия
 const del = require('del');// моудль удаления
 const newer = require('gulp-newer');//копирует только измененые файлы
-const autoPrefix = require('gulp-autoprefixer');
-const remember = require('gulp-remember');
-const imagemin = require('gulp-imagemin');
+const autoPrefix = require('gulp-autoprefixer');//Автопрефиксер
+const remember = require('gulp-remember');//Запоминает изменения
+const imagemin = require('gulp-imagemin');//Сжатие картинок
 const cleanCSS = require('gulp-clean-css');// Минификатор css
-const rename = require('gulp-rename');
-const notify = require('gulp-notify');
+const rename = require('gulp-rename');//Переменовать
+const notify = require('gulp-notify');// Уведомления
 const browserSync = require('browser-sync').create();
+const uglify = require ('gulp-uglify');// Минификация JS
+const htmlmin = require('gulp-htmlmin');//Минификация css
+const tinypng = require('gulp-tinypng');//Сжатие png
+const svgstore = require ('gulp-svgstore');//SVG Спрайт
 
-const isDevelopment = true;//статус разработки
+const isDevelopment = false;//статус разработки
 
 const debug = require('gulp-debug');//дебаг
 
@@ -49,7 +53,7 @@ gulp.task('styles', function () {
   return gulp.src(path.src.style, {since: gulp.lastRun('styles')})
     .pipe(plumber({
       errorHandler: notify.onError(function (err) {
-        return{
+        return {
           title: 'Styles',
           message: err.message
         };
@@ -67,6 +71,18 @@ gulp.task('styles', function () {
     .pipe(browserSync.stream())
 });
 
+gulp.task('js:minify', function () {
+  return gulp.src(path.src.js)
+    .pipe(uglify())
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest(path.build.js))
+});
+
+gulp.task('html', function () {
+  return gulp.src('source/index.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('build/'))
+});
 
 gulp.task('clean', function () {
   return del('build');
@@ -85,7 +101,7 @@ gulp.task('copy', function () {
 
 gulp.task('images', function () {
   return gulp
-    .src(path.build.img)
+    .src(path.src.img)
     .pipe((imagemin([
       imagemin.jpegtran({progressive: true, arithmetic: true, buffer: true}),
       imagemin.svgo({
@@ -96,6 +112,21 @@ gulp.task('images', function () {
       })
     ])))
     .pipe(gulp.dest(path.build.img));
+});
+
+gulp.task('tinypng', function () {
+  return gulp.src('build/img/*.png')
+    .pipe(tinypng('D5Mhyq57spKKcSgqQrdw9pJxLFvSNQg4'))
+    .pipe(gulp.dest(path.build.img))
+});
+
+gulp.task("svg:sprite", function () {
+  return gulp.src("build/img/*.svg")
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
+    .pipe(rename("sprite.svg"))
+    .pipe(gulp.dest("build/img"));
 });
 
 gulp.task('serve', function () {
@@ -109,10 +140,12 @@ gulp.task('serve', function () {
 
 gulp.task('dev', gulp.series(
   'clean',
-  gulp.parallel('copy', 'styles')));
+  gulp.series('copy','html','styles','js:minify','images','tinypng','svg:sprite')));
 
 gulp.task('watch', function () {
   gulp.watch(path.watch.style, gulp.series('styles'));
+  gulp.watch('source/index.html',gulp.series('html'));
+  gulp.watch(path.watch.js, gulp.series('js:minify'));
   gulp.watch('source/**/*', gulp.series('copy'));
 });
 
