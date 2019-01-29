@@ -9,15 +9,17 @@ const del = require('del');// моудль удаления
 const newer = require('gulp-newer');//копирует только измененые файлы
 const autoPrefix = require('gulp-autoprefixer');//Автопрефиксер
 const remember = require('gulp-remember');//Запоминает изменения
-const imagemin = require('gulp-imagemin');//Сжатие картинок
 const cleanCSS = require('gulp-clean-css');// Минификатор css
 const rename = require('gulp-rename');//Переменовать
 const notify = require('gulp-notify');// Уведомления
 const browserSync = require('browser-sync').create();
 const uglify = require ('gulp-uglify');// Минификация JS
 const htmlmin = require('gulp-htmlmin');//Минификация css
-const tinypng = require('gulp-tinypng');//Сжатие png
+/*const tinypng = require('gulp-tinypng');//Сжатие png,jpg*/
 const svgstore = require ('gulp-svgstore');//SVG Спрайт
+const svgmin = require ('gulp-svgmin');//Сжатие svg
+
+
 
 const isDevelopment = false;//статус разработки
 
@@ -78,7 +80,7 @@ gulp.task('js:minify', function () {
     .pipe(gulp.dest(path.build.js))
 });
 
-gulp.task('html', function () {
+gulp.task('html:minify', function () {
   return gulp.src('source/index.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest('build/'))
@@ -99,35 +101,24 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('images', function () {
-  return gulp
-    .src(path.src.img)
-    .pipe((imagemin([
-      imagemin.jpegtran({progressive: true, arithmetic: true, buffer: true}),
-      imagemin.svgo({
-        plugins: [
-          {removeViewBox: true},
-          {cleanupIDs: false}
-        ]
-      })
-    ])))
-    .pipe(gulp.dest(path.build.img));
-});
 
-gulp.task('tinypng', function () {
-  return gulp.src('build/img/*.png')
+/*gulp.task('images', function () {
+  return gulp.src('build/img/!*.{png,jpeg,jpg}')
     .pipe(tinypng('D5Mhyq57spKKcSgqQrdw9pJxLFvSNQg4'))
     .pipe(gulp.dest(path.build.img))
-});
+});*/
+
 
 gulp.task("svg:sprite", function () {
   return gulp.src("build/img/*.svg")
+    .pipe(svgmin())
     .pipe(svgstore({
       inlineSvg: true
     }))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
 });
+
 
 gulp.task('serve', function () {
   browserSync.init({
@@ -140,11 +131,11 @@ gulp.task('serve', function () {
 
 gulp.task('dev', gulp.series(
   'clean',
-  gulp.series('copy','html','styles','js:minify','images','tinypng','svg:sprite')));
+  gulp.series('copy','styles','html:minify','js:minify','svg:sprite')));
 
 gulp.task('watch', function () {
   gulp.watch(path.watch.style, gulp.series('styles'));
-  gulp.watch('source/index.html',gulp.series('html'));
+  gulp.watch('source/index.html',gulp.series('html:minify'));
   gulp.watch(path.watch.js, gulp.series('js:minify'));
   gulp.watch('source/**/*', gulp.series('copy'));
 });

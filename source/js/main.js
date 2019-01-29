@@ -4,8 +4,7 @@ window.onload = function(){
 
   navMain.classList.remove('main-nav--nojs');
 
-  navToggle.addEventListener("click", function (event) {
-    event.preventDefault();
+  navToggle.addEventListener("click", function () {
     if (navMain.classList.contains('main-nav--closed')){
       navMain.classList.remove('main-nav--closed');
       navMain.classList.add('main-nav--opened');
