@@ -18,6 +18,7 @@ const htmlmin = require('gulp-htmlmin');//Минификация css
 /*const tinypng = require('gulp-tinypng');//Сжатие png,jpg*/
 const svgstore = require ('gulp-svgstore');//SVG Спрайт
 const svgmin = require ('gulp-svgmin');//Сжатие svg
+const cheerio = require ('gulp-cheerio');// удаление лишнего svg
 
 
 
@@ -108,13 +109,28 @@ gulp.task('copy', function () {
     .pipe(gulp.dest(path.build.img))
 });*/
 
-
+const clean   = require('gulp-cheerio-clean-svg');
 gulp.task("svg:sprite", function () {
   return gulp.src("build/img/*.svg")
     .pipe(svgmin())
     .pipe(svgstore({
       inlineSvg: true
     }))
+    .pipe(cheerio(clean({
+      removeSketchType: true,
+      removeEmptyGroup: true,
+      removeEmptyDefs: true,
+      removeEmptyLines: true,
+      removeComments: true,
+      tags: [
+        'title',
+        'desc',
+      ],
+      attributes: [
+        'style',
+        'fill*'
+      ],
+    })))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
 });

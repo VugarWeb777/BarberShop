@@ -22,9 +22,10 @@
     text-decoration: none;
     @include min-width($tablet-width) {
       width: 60px;
-      height: 70px;
-      padding: 0;
+      height: auto;
       font-size: 0;
+      padding: 25px 0;
+      text-align: right;
     }
     @include min-width($desktop-width) {
       position: relative;
@@ -83,4 +84,13 @@ i.fas.fa-sign-in-alt {
       opacity: 0.1;
     }
   }
+}
+.list-menu{
+  fill: white;
+  @include min-width($desktop-width){
+    float: left;
+  }
+}
+.user-list__login:hover .list-menu{
+  fill: #826650;
 }

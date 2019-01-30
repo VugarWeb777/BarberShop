@@ -3,6 +3,7 @@
 
   width: 320px;
   min-height: 51px;
+  max-height: 74px;
   margin: 0 auto;
 
   background-color: #826650;
@@ -39,6 +40,7 @@
     cursor: pointer;
     border: none;
     text-align: center;
+    outline: none;
     &:hover,
     &:active {
       background-color: #624530;
