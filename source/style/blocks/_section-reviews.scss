@@ -3,11 +3,15 @@
   &__wrapper {
     background-color: #f8f5f2;
     color: #000000;
+    padding-bottom: 20px !important;
     @include container;
     @include min-width($tablet-width) {
       position: relative;
       padding-top: 40px;
       padding-bottom: 40px;
+    }
+    @include min-width($desktop-width){
+      padding-bottom: 120px !important;
     }
   }
   &__title {
@@ -25,8 +29,8 @@
     height: auto;
   }
   &__item {
-    margin: 20px;
     display: block;
+    margin: 0;
   }
   &__picture {
     margin: 0;
@@ -47,11 +51,13 @@
   }
   &__button {
     text-align: center;
+    display: none;
   }
   &__toggles {
     text-align: center;
     margin: 0;
     padding: 10px 0;
+    display: none;
   }
 }
 

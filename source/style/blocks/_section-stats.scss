@@ -157,7 +157,7 @@ tbody {
     padding-bottom: 14px;
     text-align: center;
     color: rgba(255, 255, 255, 0.3);
-    background-color: $bg-darkgrey;
+    background-color: #242424;
     @include min-width($tablet-width) {
       display: none;
     }

@@ -2,7 +2,7 @@
   height: auto;
   &__wrapper {
     color: #ffffff;
-    background-color: #292929;
+    background-color: #242424;
     @include container;
     padding-top: 10px;
     @include min-width($tablet-width) {
@@ -115,10 +115,20 @@ i.fab.fa-instagram {
 
 svg.social__link--instagram{
   fill: rgba(196, 50, 97, 1);
+  &:hover{
+    fill: lighten(rgba(196, 50, 97, 1),10%);
+  }
 }
 svg.social__link--facebook{
   fill: #475993;
+  &:hover{
+    fill: lighten(#475993,10%);
+  }
 }
 svg.social__link--vk{
   fill: #4d75a1;
+  &:hover{
+    fill: lighten(#4d75a1,10%);
+  }
 }
+
